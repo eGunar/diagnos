@@ -1,14 +1,15 @@
 from flask import Flask, render_template, request
-from models import *	
 
-app = Flask("tibialoot")
+app = Flask("diagnos")
 
 @app.route("/")
 def home():
 	return render_template("home.html")
 
-@app.route("/contact/")
-def spawn_statistics():
+@app.route("/contact/", methods=["GET", "POST"])
+def contact():
+	if request.method == "POST":
+		return "Tack!"
 	return render_template("contact.html")
 
 if __name__ == "__main__":
